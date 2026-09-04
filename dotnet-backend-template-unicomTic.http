@@ -1,0 +1,6 @@
+@dotnet_backend_template_unicomTic_HostAddress = http://localhost:5255
+
+GET {{dotnet_backend_template_unicomTic_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
