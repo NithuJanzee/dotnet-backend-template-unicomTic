@@ -3,6 +3,9 @@ using dotnet_backend_template_unicomTic.Interface.IRepositpory;
 using dotnet_backend_template_unicomTic.Interface.IService;
 using dotnet_backend_template_unicomTic.Repository;
 using dotnet_backend_template_unicomTic.Service;
+using dotnet_backend_template_unicomTic.Interface;
+using dotnet_backend_template_unicomTic.Repository;
+using dotnet_backend_template_unicomTic.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +33,9 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseServices, CourseServices>();
 
 var app = builder.Build();
 
