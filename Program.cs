@@ -1,4 +1,7 @@
 using dotnet_backend_template_unicomTic.ApplicationDbContext;
+using dotnet_backend_template_unicomTic.Interface;
+using dotnet_backend_template_unicomTic.Repository;
+using dotnet_backend_template_unicomTic.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,9 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 {
   option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseServices, CourseServices>();
 
 var app = builder.Build();
 
